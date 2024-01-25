@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\Pixci_Soft\xclibex.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    <None Include="..\..\..\..\..\..\Program Files\EPIX\XCLIB\lib\xclibw64.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Pixci_Soft\xclibex2.cpp">
+    <ClCompile Include="xclibex2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Pixci_Soft\xclibex2.h">
+    <ClInclude Include="xclibex2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\Program Files\EPIX\XCLIB\lib\xclibw64.dll" />
+    <ResourceCompile Include="xclibex2.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

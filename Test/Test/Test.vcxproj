@@ -132,16 +132,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\..\Pixci_Soft\xclibex.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Pixci_Soft\xclibex2.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Pixci_Soft\xclibex2.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\..\..\..\..\Program Files\EPIX\XCLIB\lib\xclibw64.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="xclibex2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="xclibex2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="xclibex2.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
