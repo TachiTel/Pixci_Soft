@@ -1364,7 +1364,7 @@ PIXCIDialogProc1(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 		//
 		// Set our title.
 		//
-		SetWindowText(hDlg, "EPIX(R) PIXCI(R) Frame Grabber Example");
+		SetWindowText(hDlg, "Jordan's Test EPIX(R) PIXCI(R) Frame Grabber Example");
 
 
 		//
@@ -1628,7 +1628,7 @@ PIXCIDialogProc1(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			EnableWindow(GetDlgItem(hDlg, IDHUESCROLL), FALSE);
 			break;
 		}
-
+		printf("%s\n", "Le kek");
 		//
 		// If using DirectDraw, initialize access to it.
 		//
@@ -2211,7 +2211,7 @@ int APIENTRY WinMain(
 		return(FALSE);
 
 	hWnd = CreateWindow("PXlibWClass",
-		"XCLIBEX2 Windows Example",
+		"Jordan's Test Window",
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
 		CW_USEDEFAULT, CW_USEDEFAULT,
