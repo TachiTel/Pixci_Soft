@@ -1146,7 +1146,7 @@ int APIENTRY WinMain(
 	//
 	//ShowWindow(hWnd, nCmdShow);
 	//UpdateWindow(hWnd);
-	hDlg = CreateDialogParam(hInstance, "PIXCIDIALOG", NULL, (DLGPROC)PIXCIDialogProc, NULL);
+	hDlg = CreateDialogParam(hInstance, "SCOTTDIALOG", NULL, (DLGPROC)PIXCIDialogProc, NULL);
 	if (!hDlg) {
 		MessageBox(NULL, "Missing Dialog Resource - Compilation or Link Error!", "XCLIBEX4", MB_OK | MB_TASKMODAL);
 		return(FALSE);
