@@ -764,7 +764,7 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 		//
 		// Init dialog controls.
 		//
-		SetScrollRange(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, pxd_imageZdim(), TRUE);
+		//SetScrollRange(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, pxd_imageZdim(), TRUE);
 		//EnableWindow(GetDlgItem(hDlg, IDLIVE), TRUE);
 		//EnableWindow(GetDlgItem(hDlg, IDSNAP), TRUE);
 		//EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), TRUE);
@@ -814,8 +814,10 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 
 	case WM_COMMAND:
 		switch (LOWORD(wParam)) {
-
-		case IDSNAP:
+			case RUNBUTTON:
+				if (HIWORD(wParam) != BN_CLICKED)
+					return (FALSE);
+		/*case IDSNAP:
 			if (HIWORD(wParam) != BN_CLICKED)
 				return(FALSE);
 			liveon = FALSE;
@@ -823,14 +825,14 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			err = pxd_goSnap(UNITSMAP, 1);
 			if (err < 0)
 				MessageBox(NULL, pxd_mesgErrorCode(err), "pxd_goSnap", MB_OK | MB_TASKMODAL);
-			EnableWindow(GetDlgItem(hDlg, IDLIVE), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSNAP), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSTOP), FALSE);
-			SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDLIVE), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSNAP), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSTOP), FALSE);
+			//SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
 			return(TRUE);
-
+			
 		case IDLIVE:
 			if (HIWORD(wParam) != BN_CLICKED)
 				return(FALSE);
@@ -839,12 +841,12 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			err = pxd_goLive(UNITSMAP, 1L);
 			if (err < 0)
 				MessageBox(NULL, pxd_mesgErrorCode(err), "pxd_goLive", MB_OK | MB_TASKMODAL);
-			EnableWindow(GetDlgItem(hDlg, IDLIVE), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSNAP), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSTOP), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDLIVE), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSNAP), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSTOP), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), FALSE);
 			SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
 			return(TRUE);
 
@@ -854,12 +856,12 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			pxd_goUnLive(UNITSMAP);
 			liveon = FALSE;
 			seqdisplayon = FALSE;
-			EnableWindow(GetDlgItem(hDlg, IDLIVE), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSNAP), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDSTOP), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDLIVE), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSNAP), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDSTOP), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), TRUE);
 			return(TRUE);
 
 		case IDSEQCAPTURE:
@@ -903,15 +905,15 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 				MessageBox(NULL, pxd_mesgErrorCode(err), "pxd_goLiveSeq", MB_OK | MB_TASKMODAL);
 			liveon = FALSE;
 			seqdisplayon = FALSE;
-			EnableWindow(GetDlgItem(hDlg, IDLIVE), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSNAP), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSTOP), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDLIVE), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSNAP), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSTOP), TRUE);
 			// Enable scroll so it can show capture status;
 			// it doesn't allow changing the currently capture buffer.
-			EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), TRUE);
-			SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), TRUE);
+			//SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
 			return(TRUE);
 
 		case IDSEQDISPLAY:
@@ -921,13 +923,13 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			liveon = FALSE;
 			seqdisplayon = TRUE;
 			seqdisplaytime = GetTickCount();
-			EnableWindow(GetDlgItem(hDlg, IDLIVE), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSNAP), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), FALSE);
-			EnableWindow(GetDlgItem(hDlg, IDSTOP), TRUE);
-			EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), FALSE);
-			SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDLIVE), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSNAP), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQCAPTURE), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSEQDISPLAY), FALSE);
+			//EnableWindow(GetDlgItem(hDlg, IDSTOP), TRUE);
+			//EnableWindow(GetDlgItem(hDlg, IDBUFFERSCROLL), FALSE);
+			//SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, 1, TRUE);
 			return(TRUE);
 
 		case IDSEQSAVE:
@@ -956,7 +958,7 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			return(TRUE);
 		}
 		break;
-
+	/*
 	case WM_HSCROLL:
 	{
 		HWND hCtrl = (HWND)lParam;
@@ -981,7 +983,7 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 					return(FALSE);
 				}
 				b = max(1, min(pxd_imageZdim(), b));
-				SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, b, TRUE);
+				//SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, b, TRUE);
 				seqdisplaybuf = b;
 				if (!seqdisplayon)
 					for (int u = 0; u < UNITS; u++)
@@ -989,9 +991,10 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			}
 			return(TRUE);
 		}
-		}
+		}*/
 		return(FALSE);
 	}
+
 
 	case WM_CLOSE:
 		pxd_PIXCIclose();
@@ -1073,7 +1076,7 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			// will show when the trigger has arrived and the delay
 			// expired so as to let the sequence capture run.
 			//
-			SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, buf, TRUE);
+			//SetScrollPos(GetDlgItem(hDlg, IDBUFFERSCROLL), SB_CTL, buf, TRUE);
 		}
 
 		return(TRUE);

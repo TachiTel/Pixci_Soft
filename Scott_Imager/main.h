@@ -9,7 +9,7 @@
  *
  *
  */
-
+/*
 #define IDLIVE		100
 #define IDSNAP		101
 #define IDUNLIVE	102
@@ -55,6 +55,8 @@
 #define IDAGC2CHECK	142
 #define IDEXPORT	143
 #define IDIMPORT	144
+*/
 // From now on is my new code
+#define IDIMAGE 	103
 #define RUNBUTTON 200
 #define FUNNYBUTTON 201
