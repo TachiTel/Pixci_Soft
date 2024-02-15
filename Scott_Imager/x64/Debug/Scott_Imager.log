@@ -1,1 +1,4 @@
-﻿  Scott_Imager.vcxproj -> C:\Users\js11g19\Documents\svn\PhDCode\Pixci_Soft\Test\x64\Debug\Scott_Imager.exe
+﻿cl : command line  warning D9025: overriding '/MDd' with '/MT'
+cl : command line  warning D9002: ignoring unknown option '-GB'
+  main.cpp
+  Scott_Imager.vcxproj -> C:\Users\js11g19\Documents\svn\PhDCode\Pixci_Soft\Test\x64\Debug\Scott_Imager.exe

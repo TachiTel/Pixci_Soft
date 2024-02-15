@@ -631,6 +631,7 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 	static  HWND	hWndImage;			    // child window of dialog for image display
 	int 	err = 0;
 
+	//printf("Message: %#08x\n", wMsg);
 	switch (wMsg) {
 	case WM_INITDIALOG:
 	{
@@ -811,13 +812,23 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 
 		return(TRUE);
 	}
-
+	case WM_COMMAND:
+		switch (LOWORD(wParam)) {
+		case RUNBUTTON:
+			if (HIWORD(wParam) != BN_CLICKED)
+				return (FALSE);
+			
+			printf("Worked!\n");
+			return(TRUE);
+		}
+		return(FALSE);
+	/*
 	case WM_COMMAND:
 		switch (LOWORD(wParam)) {
 			case RUNBUTTON:
 				if (HIWORD(wParam) != BN_CLICKED)
 					return (FALSE);
-		/*case IDSNAP:
+		case IDSNAP:
 			if (HIWORD(wParam) != BN_CLICKED)
 				return(FALSE);
 			liveon = FALSE;
@@ -958,11 +969,11 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			return(TRUE);
 		}
 		break;
-	/*
+	
 	case WM_HSCROLL:
 	{
 		HWND hCtrl = (HWND)lParam;
-		switch (GetWindowLong(hCtrl, GWL_ID)) {
+		/*switch (GetWindowLong(hCtrl, GWL_ID)) {
 		case IDBUFFERSCROLL:
 		{
 			if (liveon) {
@@ -991,9 +1002,9 @@ PIXCIDialogProc(HWND hDlg, UINT wMsg, WPARAM wParam, LPARAM lParam)
 			}
 			return(TRUE);
 		}
-		}*/
+		}
 		return(FALSE);
-	}
+	}*/
 
 
 	case WM_CLOSE:
